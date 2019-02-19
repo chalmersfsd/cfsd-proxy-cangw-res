@@ -5,6 +5,7 @@ branches:
   only:
   - "/^master$/"
   - "/^pre-release$/"
+  - "/^v.*$/"  # tag (or release version)
 services:
 - docker
 addons:
