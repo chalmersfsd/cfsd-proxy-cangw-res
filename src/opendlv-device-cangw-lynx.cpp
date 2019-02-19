@@ -65,38 +65,7 @@ int32_t main(int32_t argc, char **argv) {
         auto decode = [&od4, VERBOSE, ID](cluon::data::TimeStamp ts, uint16_t canFrameID, uint8_t *src, uint8_t len) {
             if ( (nullptr == src) || (0 == len) ) return;
 
-            if (LYNX19GW_DL_AS_STATUS_FRAME_ID == canFrameID) {
-                lynx19gw_dl_as_status_t tmp;
-                if (0 == lynx19gw_dl_as_status_unpack(&tmp, src, len)) {
-                    opendlv::proxy::AsStatus msg;
-                    msg.asMission(lynx19gw_dl_as_status_as_mission_decode(tmp.as_mission));
-                    // The following block is automatically added to demonstrate how to display the received values.
-                    {
-                        std::stringstream sstr;
-                        msg.accept([](uint32_t, const std::string &, const std::string &) {},
-                                [&sstr](uint32_t, std::string &&, std::string &&n, auto v) { sstr << n << " = " << v << '\n'; },
-                                []() {});
-                        std::cout << sstr.str() << std::endl;
-                    }
-                }
-            }
-            
-            if (LYNX19GW_NF_NR_SENSORS_1_FRAME_ID == canFrameID) {
-                lynx19gw_nf_nr_sensors_1_t tmp;
-                if (0 == lynx19gw_nf_nr_sensors_1_unpack(&tmp, src, len)) {
-                    opendlv::proxy::TorqueReading msg;
-                    msg.torque(lynx19gw_nf_nr_sensors_1_throttle_decode(tmp.throttle));
-                    // The following block is automatically added to demonstrate how to display the received values.
-                    {
-                        std::stringstream sstr;
-                        msg.accept([](uint32_t, const std::string &, const std::string &) {},
-                                [&sstr](uint32_t, std::string &&, std::string &&n, auto v) { sstr << n << " = " << v << '\n'; },
-                                []() {});
-                        std::cout << sstr.str() << std::endl;
-                    }
-                }
-            }
-            
+
         };
 
 #ifdef __linux__

@@ -10,7 +10,7 @@ lynx19gw_as_dl_sensors_t.pressure_regulator:
 lynx19gw_as_dl_sensors_t.as_rtd:
 lynx19gw_nr_dl_sensors_4_new_t.dummy:
 lynx19gw_nr_dl_tv_out_3_new_t.dummy:
-lynx19gw_dl_as_status_t.as_mission:opendlv.proxy.AsStatus.asMission
+lynx19gw_dl_as_status_t.as_mission:
 lynx19gw_dl_as_status_t.brake_front:
 lynx19gw_dl_as_status_t.brake_rear:
 lynx19gw_dl_as_status_t.dl_status:
@@ -117,7 +117,7 @@ lynx19gw_nf_nr_sensors_1_t.disk_temp_fl:
 lynx19gw_nf_nr_sensors_1_t.disk_temp_fr:
 lynx19gw_nf_nr_sensors_1_t.brake:
 lynx19gw_nf_nr_sensors_1_t.steering_angle:
-lynx19gw_nf_nr_sensors_1_t.throttle:opendlv.proxy.TorqueReading.torque
+lynx19gw_nf_nr_sensors_1_t.throttle:
 lynx19gw_nf_nr_sensors_2_t.wheel_speed_fl:
 lynx19gw_nf_nr_sensors_2_t.wheel_speed_fr:
 lynx19gw_nf_nr_sensors_2_t.damper_fl:
