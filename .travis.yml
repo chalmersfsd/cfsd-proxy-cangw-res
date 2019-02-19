@@ -13,6 +13,7 @@ addons:
 env:
   global:
   - BRANCH = ${TRAVIS_BRANCH}
+  - COMMIT=${TRAVIS_COMMIT::7}
   - DOCKERHUB='chalmersfsd'
   - IMAGE=`echo ${TRAVIS_REPO_SLUG#*/}`
   - secure: dushg6DuEGVeKO0UusWz+I48HZ2xYhIIjsU0EyymZhwfj/HH7gMP1C6moJcE8CMpWqk/Zh7z5gHrWi/SBwJ7HobO5OMxVsWBNS4dewOdQmNmp/nU6TxYX7iYCVRpTMDfnahe1nDo5SPj9kgunDBiX/EzSHvN3keeLfhKcgcUwttWjfys/bEJK7q7VvGSTcesYG1I9RVlOD4K7D+P8HpXTaADtxS76Z9m6hrzGOafcihAVqRGsN719959lZYgRKP7lZKM3cwNJhbkC1DaITSMGOcHO9Y2ioha0il/2ixzsIiwYROKjE8R5VvATT1DIScEZktti+8ti0XDglHFfo0wbAkevYVyGMoFs4ve4RO21pYOo6qZXRyuowavAyeOKFSYNSwUVYGzTacRz4LHPZrsuDpa8beZnnOG1hn6NiYTM/PudGAOHSUXBsFncCtLvUfNZC0po9YV+ezos5c9odxk742qvrFTRXpTIcPDxffGt1RQdBTMaM+oGwkieny1bHRVy3wtLz7etxEldPwYDwSZ74Kfpo8fI3/RUGaCWnLGLzusc7cxZIZRXfOIw8+yTSNlDucivv8hgwIRYzp7jLhQqNyASqghzXu0p+cu/UdOJ4JKY508n4WhAerYBCxJ7HfGHgsBunc/fNRqpdLqVgAOBSAs/itVwxWjqi9wdV/w5jM=
@@ -20,7 +21,7 @@ env:
 install:
 - echo ${IMAGE}
 - echo ${BRANCH}
-- docker build -f Dockerfile.amd64 -t ${IMAGE}:${BRANCH} .
+- docker build -f Dockerfile.amd64 -t ${IMAGE}:${BRANCH}-${COMMIT} .
 script: skip
 after_success:
 - if [[ -z "${TRAVIS_TAG}" ]]; then echo "This commit hasn't been tagged, will not be pushed to dockerhub"; exit 0; fi
