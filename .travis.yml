@@ -12,7 +12,7 @@ addons:
     update: true
 env:
   global:
-  - BRANCH = ${TRAVIS_BRANCH}
+  - BRANCH=${TRAVIS_BRANCH}
   - COMMIT=${TRAVIS_COMMIT::7}
   - DOCKERHUB='chalmersfsd'
   - IMAGE=`echo ${TRAVIS_REPO_SLUG#*/}`
