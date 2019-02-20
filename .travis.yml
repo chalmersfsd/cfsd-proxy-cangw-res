@@ -14,14 +14,13 @@ addons:
 env:
   global:
   - BRANCH=${TRAVIS_BRANCH}
-  - COMMIT=${TRAVIS_COMMIT::7}
   - TAG=${TRAVIS_TAG}
   - DOCKERHUB='chalmersfsd'
   - IMAGE=`echo ${TRAVIS_REPO_SLUG#*/}`
   - secure: Jal9up7h+BsQrkG6denU73I2htApO0Q+qcVQeYuFsLLYQKzx0iEa6q5DMF8/0y032fzdyj0s+Rv2ufz4m+D6iPXhpGyqGD53XEkF8iBS8Q9YhVK9XL6mj610IheSSV5kjvpMQgjaUB0eoq4CxB3SjaapEJ+s8bGNWZAbFzHzV8ufhTyV2sRSP++WO6lPfh41HEm6NwDuRBFwVR2am5FWFyCVcpOkbaUrmK+WTsMHTagrbTf92vi9HGeplfcaCBmwbqMgfnYF5TLeM/8gA/ASHbd96bGpdXK8XssLl2rts/X4BhmeW8hPcg8gn0TB5dq/gwPBIHt7BofGQTMXMRJDwDSLk/KZeiCi141KT13lKKOUS2hdqIdFlKcbk2qzp1oK0gZD/rp9R9k2/bF2ESb3Fy2V6hzF6yhlP9mURctd8y/ocoxcwx025tKgsEl3ZnlkaSD13ihLbORKufP9MxqMrCkJy9ZtUjLWLc5rSg3Pc7WrmhS7AJs6bo5CEJyYCkMkAg8s+S/Hlewy+J3xxSFdv6riXAoNzKvb7naEqLV/fpm4ikla/vLqK64Xrfk/GI2gRKj7WTormgLs8y7u0CpA+Z6dJ/6aJ/vuHMOol7YEMejMIUbc2kvkc+oFnjrae8T28+9GqeHkivTcZW9nW6IwFzdei8ibj5RdBMrjG76uppw=
   - secure: KwVfKiRQsJL9z5adA/RivtKEZY/vsja2ot9CO0A2QtLSHQBQcKKNWjUhg4aFG9Z9864dihqV5tma2y5cTvyXWtzOgOOGVdF4cTLVPNNpXNxapAIyd5JDqu1+R6Zi1PQnTIPmBMsgVs6/CsJucXHJYv1BgfENZ7TPB/XFvMI9SVwOnmZfbG/iAj2Pg1FpZUFJ7+E2eMS2w3HLxlFQ5BucBTZbjG2KgtnqNxRBdrwESdQswE407FHpe/vervv1vtcjCjzadHnjgjrv4yVylweBxdjilQ1i6eVAF/NqZ7h9JSuEh9Tt9QrgIfM6+OiKihnKQ0nTCyqh624j//K46urnBAdTX2PcLb78hXJFHRqAQzfd3BUi37ew3vmoSnjGGP57nFgPCdXwili1yhlzElmi+/YFP00V58d48UpF/16r0ild5bxZ8iW+1Av3IguW/R0rZ0P9XT6t/tf4kjQ4IxtenEUNtVPcr9o/QYwTt4rfn1OmLHC5ShwHdEI3wqSSoT9WkSiiNabJM7s2zXctK2GDGPyrfyWkYsTIjYK+HYEil4YkJJayVASyo3TQe0qGVY19qjvsOWnwSrtmeuoCXJao0b9t1fST5hCfpM68Fn7HWEQh1pU1/B2wxav/rWAKO2Hlj1Z3Udx9L9CP1pRfYrJh/PKU+0OODR0qS2+IRcao0bU=
 install:
-- docker build -f Dockerfile.amd64 -t ${IMAGE}:${BRANCH}-${COMMIT} .
+- docker build -f Dockerfile.amd64 -t ${IMAGE}:${BRANCH} .
 script: skip
 after_success:
 - if [[ -z "${TAG}" ]]; then echo "This commit hasn't been tagged, will not be pushed to dockerhub"; exit 0; fi
