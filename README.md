@@ -52,11 +52,7 @@ docker run --rm -ti -v $PWD/src/:/in -w /in dbc2odvd:v0.0.0 generateMappingCodeS
 Setting the CAN:
 
 ```
-<<<<<<< HEAD
-sudo ip link set can0 up type can bitrate 500000
-=======
 sudo ip link set can0 up type can bitrate 1000000
->>>>>>> cfsd-res
 sudo ifconfig can0 up
 ```
 
