@@ -11,14 +11,11 @@ messages:
 
 The mapping info of messages can be found at CAN Mapping.md
 
-lynx-v0.1.1.odvd is the message set for talking to CAN should only be used in these CAN getway microservice.
+lynx-v0.1.0.odvd is the message set for talking to CAN should only be used in these CAN getway microservice.
 
 lynxres19gw.dbc is the CAN database file which is a reference for decoding and encoding the CAN message.
 
 lynxres19gw.dbc.map is the mapping setting file for the microservice knowing how to map the messsages.
-
--- Change 
-Fix the message naming : Res init -> opendlv::proxy::SwitchStateRequest  1099 
 
 Messege : opendlv::proxy::SwitchStateReading:
 
@@ -34,16 +31,10 @@ Messege : opendlv::proxy::SwitchStateReading:
 |             |              | 3     | 1                              |
 |             |              | 7     | 1+go                           |
 
-Receive(listening) Messege : opendlv::proxy::SwitchStateRequest: 
-
-| senderstamp | Message Name | Value | Meaning                        |
-| ----------- | ------------ | ----- | ------------------------------ |
-| 1099        | resInit      |       | Initialize the RES device      |
-
 run the microservice:
 
 ```
-docker run --rm -ti --net=host --privileged chalmersfsd/cfsd-proxy-cangw-res:v0.1.1 --cid=111 --can=can0 --verbose
+docker run --rm -ti --net=host --privileged cfsd-proxy-cangw-res:v0.0.1 --cid=111 --can=can0 --verbose
 ```
 
 generate the dbc map file:
