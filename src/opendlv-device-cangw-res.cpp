@@ -145,7 +145,7 @@ int32_t main(int32_t argc, char **argv) {
             memset(&tmp, 0, sizeof(tmp));
             // The following msg would have to be passed to this encoder externally.
             opendlv::proxyCANWriting::NMT msg;
-            if (env.senderStamp() == 1499){ //res initial senderstamp
+            if (env.senderStamp() == 1099){ //res initial senderstamp
                 if (VERBOSE){
                     std::clog << "received res initial"<< std::endl;
                 }
@@ -168,7 +168,7 @@ int32_t main(int32_t argc, char **argv) {
                 }
             }
         };
-        od4.dataTrigger(opendlv::proxy::SwitchStateReading::ID(), onRESinitial);
+        od4.dataTrigger(opendlv::proxy::SwitchStateRequest::ID(), onRESinitial);
 
         struct can_frame frame;
         fd_set rfds;

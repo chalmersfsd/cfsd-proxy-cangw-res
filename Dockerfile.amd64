@@ -27,7 +27,7 @@ ADD . /opt/sources
 WORKDIR /opt/sources
 RUN mkdir build && \
     cd build && \
-    generateHeaderOnly.sh ../src/lynxres19gw.dbc ../src/lynx-v0.1.0.odvd && \
+    generateHeaderOnly.sh ../src/lynxres19gw.dbc ../src/lynx-v0.1.1.odvd && \
     cp lynxres19gw.hpp /tmp
 
 
