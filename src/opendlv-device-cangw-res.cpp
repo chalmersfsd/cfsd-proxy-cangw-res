@@ -63,7 +63,7 @@ int32_t main(int32_t argc, char **argv) {
             if (LYNXRES19GW_PDO_RES_STATUS_FRAME_ID == canFrameID) {
                 lynxres19gw_pdo_res_status_t tmp;
                 if (0 == lynxres19gw_pdo_res_status_unpack(&tmp, src, len)) {
-                    opendlv::proxyCANReading::RESStatus msg;
+                    opendlv::cfsdProxyCANReading::RESStatus msg;
                     msg.resButtons(lynxres19gw_pdo_res_status_res_buttons_decode(tmp.res_buttons));
                     msg.resEStop(lynxres19gw_pdo_res_status_res_e_stop_decode(tmp.res_e_stop));
                     msg.resQuality(lynxres19gw_pdo_res_status_res_quality_decode(tmp.res_quality));
@@ -144,7 +144,7 @@ int32_t main(int32_t argc, char **argv) {
             lynxres19gw_nmt_node_control_t tmp;
             memset(&tmp, 0, sizeof(tmp));
             // The following msg would have to be passed to this encoder externally.
-            opendlv::proxyCANWriting::NMT msg;
+            opendlv::cfsdProxyCANWriting::NMT msg;
             if (env.senderStamp() == 1099){ //res initial senderstamp
                 if (VERBOSE){
                     std::clog << "received res initial"<< std::endl;

@@ -20,6 +20,10 @@ lynxres19gw.dbc.map is the mapping setting file for the microservice knowing how
 -- Change 
 Fix the message naming : Res init -> opendlv::proxy::SwitchStateRequest  1099 
 
+2019-05-06 Switch the lynx-v0.1.1.odvd message set to cfsd-extended-message-set-v0.0.1.odvd, changes message names
+
+
+
 Messege : opendlv::proxy::SwitchStateReading:
 
 | senderstamp | Message Name | Value | Meaning                        |
