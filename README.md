@@ -61,12 +61,17 @@ docker run --rm -ti -v $PWD/src/:/in -w /in dbc2odvd:v0.0.0 generateMappingCodeS
 Setting the CAN:
 
 ```
-sudo ip link set can0 up type can bitrate 1000000
-sudo ifconfig can0 up
+sudo ip link set can1 up type can bitrate 1000000
+sudo ifconfig can1 up
 ```
 
 watch the CAN message:
 
 ```
-candump can0
+candump can1
+```
+
+send res initialize singal manually
+```
+cansend can1 000#010000000000
 ```
