@@ -79,19 +79,19 @@ int32_t main(int32_t argc, char **argv) {
                             
                     opendlv::proxy::SwitchStateReading msgRESBtn;
                     msgRESBtn.state(msg.resButtons());
-                    od4.send(msgRESBtn,ts,1410); // res sender stamp
+                    od4.send(msgRESBtn,ts,1804); // res button sender stamp
 
                     opendlv::proxy::SwitchStateReading msgResQuality;
                     msgResQuality.state(msg.resQuality());
-                    od4.send(msgResQuality,ts,1409);// res sender stamp
+                    od4.send(msgResQuality,ts,1803);// res quality sender stamp
 
                     opendlv::proxy::SwitchStateReading msgResEStop;
                     msgResEStop.state(msg.resEStop());
-                    od4.send(msgResEStop,ts,1408);// res EStop stamp
+                    od4.send(msgResEStop,ts,1802);// res EStop stamp
 
                     opendlv::proxy::SwitchStateReading msgResStatus;
                     msgResStatus.state(msg.resStatus());
-                    od4.send(msgResStatus,ts,1407);// res status stamp
+                    od4.send(msgResStatus,ts,1801);// res status stamp
                 }
             }
         };
